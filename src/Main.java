@@ -18,14 +18,41 @@ public class Main {
             throw new RuntimeException("В ФИО НЕ МОЖЕТ БЫТЬ БУКВЫ Ё!");
         }
 //        Задание 4
-        fullName = "Ivanov Ivan Ivanovich";
-        String lastNameA = fullName.substring(0, fullName.indexOf(' '));
-        String firstNameA = fullName.substring(fullName.indexOf(' '), fullName.lastIndexOf(' '));
-        String middleNameA = fullName.substring(fullName.lastIndexOf(' '), fullName.length());
+        String fullNameA = "Ivanov Ivan Ivanovich";
+        String lastNameA = fullNameA.substring(0, fullNameA.indexOf(' '));
+        String firstNameA = fullNameA.substring(fullNameA.indexOf(' '), fullNameA.lastIndexOf(' '));
+        String middleNameA = fullNameA.substring(fullNameA.lastIndexOf(' '), fullNameA.length());
         System.out.println("Фамилия сотрудника -- " + lastNameA);
         System.out.println("Имя сотрудника -- " + firstNameA);
         System.out.println("Отчество сотрудника -- " + middleNameA);
 //        Задание 5
-
+        fullName = "ivanov ivan ivanovich";
+        char fullNameChar[] = fullName.toCharArray();
+        fullNameChar[0] = Character.toUpperCase(fullNameChar[0]);
+        for (int i = 0; i < fullNameChar.length; i++) {
+            if (fullNameChar[i] == ' ') {
+                fullNameChar[i+1] = Character.toUpperCase(fullNameChar[i+1]);
+            }
+        }
+        String fullNameAgain = new String (fullNameChar);
+        System.out.println("Правильное написание ФИО -- " + fullNameAgain);
+//        Задание 6
+        StringBuilder A = new StringBuilder("1357");
+        StringBuilder B = new StringBuilder("2468");
+        int d = A.length() + B.length();
+        for (int i = 0; i < d; i=i+2) {
+            char c = B.charAt(i/2);
+            A.insert(i + 1, c);
+        }
+        System.out.println(A);
+//        Задание 7
+        String E = "aabccddefgghiijjkkllmmnoppqrrsstuvwwxyyz";
+        StringBuilder F = new StringBuilder();
+        for (int i = 0; i < E.length()-1; i++) {
+            if (E.charAt(i) == E.charAt(i+1)) {
+                F.append(E.charAt(i));
+            }
+        }
+        System.out.println(F);
     }
 }
